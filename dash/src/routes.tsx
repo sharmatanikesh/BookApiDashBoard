@@ -3,12 +3,25 @@ import HomePage from "./pages/HomePage"
 import CreateBook from "./pages/CreateBook";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import DashBoardLayout from "./layout/DashboardLayout";
+import BooksPage from "./pages/BooksPage";
+
 
 const router = createBrowserRouter([
 
     {
-        path:'home',
-        element:<HomePage/>
+        path:'dashboard',
+        element:<DashBoardLayout/>,
+        children:[
+            {
+                path:'home',
+                element:<HomePage/>
+            },
+            {
+                path:'book',
+                element:<BooksPage/>
+            }
+        ]
     },
     {
         path:'books',
