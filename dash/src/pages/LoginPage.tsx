@@ -13,16 +13,18 @@ import { useMutation } from "@tanstack/react-query";
 import { Link ,useNavigate} from "react-router-dom";
 import { LoaderCircle } from 'lucide-react';
 import { login } from "../http/api";
-
+import useTokenStore from '@/stores';
 const LoginPage = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
+  const setToken = useTokenStore((state) => state.setToken);
   const mutation = useMutation({
     mutationFn: login,
-    onSuccess: () => {
+    onSuccess: (response) => {
+      setToken(response.data.accessToken);
       navigate('/dashboard/home')
-      console.log("Successful");
+      console.log("Login successful")
     },
   });
 
