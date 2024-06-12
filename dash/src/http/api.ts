@@ -17,3 +17,5 @@ export const login= async(data:{email:string,password:string})=>{
 export const register = async(data:{email:string,password:string,name:string})=>{
     return api.post('api/v1/users/register',data);
 }
+
+export const getBooks = async()=>api.get('api/v1/books');

@@ -32,7 +32,7 @@ import { Navigate } from "react-router-dom";
 const DashBoardLayout = () => {
   const { token, setToken } = useTokenStore((state) => state);
 
-  if (!token) {
+  if (! token) {
     return <Navigate to={"/auth/login"} replace />;
   }
 
