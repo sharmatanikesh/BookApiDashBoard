@@ -41,8 +41,7 @@ const BooksPage = () => {
     // todo: add loading spinner, and error message
     
     
-    // @ts-ignore
-    const { data, isLoading, isError } = useQuery({
+    const { data } = useQuery({
         queryKey: ['books'],
         queryFn: getBooks,
         staleTime: 10000, 
