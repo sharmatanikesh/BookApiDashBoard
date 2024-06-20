@@ -19,3 +19,11 @@ export const register = async(data:{email:string,password:string,name:string})=>
 }
 
 export const getBooks = async()=>api.get('api/v1/books');
+
+
+export const createBook = async (data: FormData) =>
+    api.post('/api/books', data, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+    });
